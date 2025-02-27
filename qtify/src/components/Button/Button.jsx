@@ -1,12 +1,8 @@
 import React from "react";
 import styles from "./Button.module.css";
 
-const Button = ({text,onclick})=>{
-    return (
-        <Button className={styles.feedbackButton} onclick={onclick}>
-            {text}
-        </Button>
-    );
+const Button = ({children})=>{
+    return <button className={styles.button}>{children}</button>;
 };
 
 

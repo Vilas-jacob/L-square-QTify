@@ -9,6 +9,10 @@ export default function HomePage(){
     const {data} = useOutletContext();
     const {newAlbums, topAlbums,songs,genres}= data;
 
+    if (!data) {
+        return <div>Loading...</div>; // or any loading indicator
+    }
+
     return (
         <>
             <Hero />

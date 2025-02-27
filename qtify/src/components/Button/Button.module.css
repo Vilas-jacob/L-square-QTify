@@ -1,15 +1,7 @@
-:root{
-    --button-bg-color:black;
-    --button-text-color:#34C94B;
-}
-
-.feedbackButton{
-    background-color: var(--button-bg-color);
-    color: var(--button-text-color);
-    font-family: 'Poppins', sans-serif;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
+.button {
+    background-color: var(--color-black);
+    color: var(--color-primary);
+    border-radius: 12px;
+    padding: 10px 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
+  }

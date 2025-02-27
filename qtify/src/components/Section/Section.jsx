@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import styles from "./Section.module.css";
 import Carousel from "../Carousel/Carousel";
 import Filters from "../Filters/Filters";
@@ -17,6 +17,15 @@ export default function Section ({title, data, filterSource, type}){
         setCarouselToggle((prevState)=>!prevState);
     };
 
+
+    useEffect(() => {
+      if (filterSource) {
+        filterSource().then((response) => {
+          const { data } = response;
+          setFilters([...filters, ...data]);
+        });
+      }
+    }, []);
 
     const showFilters = filters.length > 1;
 
