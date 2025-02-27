@@ -11,6 +11,8 @@ export default function CarouselRight() {
 
     swiper.on("slideChange", function () {
         setIsEnd(swiper.isEnd);
+        console.log("Current Slide Index:", swiper.activeIndex);
+        console.log("Is End:", swiper.isEnd);
     });
 
 
