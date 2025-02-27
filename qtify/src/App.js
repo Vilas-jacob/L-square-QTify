@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Navbar from './components/Navbar/Navbar';
+import { StyledEngineProvider } from '@mui/material';
 
 function App() {
+
+  const [data,setData]=useState({});
+
+  const generateData = (key, source)=>{
+    source().then((data)=>{
+      setData((prevState)=>{
+        return {...prevState,[key]:data};
+      });
+    });
+  };
+
+
+  const {topAlbums=[],newAlbums=[],songs=[],genres=[]}=data;
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <StyledEngineProvider injectFirst>
+        <Navbar searchData={[...topAlbums,...newAlbums]}/>
+      </StyledEngineProvider>
+    </>
   );
 }
 
